@@ -1,21 +1,13 @@
-MIT License
+COPYRIGHT NOTICE (ALL RIGHTS RESERVED)
 
 Copyright (c) 2026 Umer Tanveer
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This source code and its associated documentation are the intellectual property of Umer Tanveer.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+RESTRICTIONS:
+1.  This code is provided for PEER REVIEW PURPOSES ONLY.
+2.  You are NOT allowed to copy, modify, distribute, or sub-license this code.
+3.  You are NOT allowed to use this code for commercial purposes or to train machine learning models.
+4.  This work is currently UNDER REVIEW for publication. Any unauthorized use or reproduction of the ideas, algorithms, or implementation details contained herein constitutes academic misconduct and copyright infringement.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Upon official publication of the associated paper, this license may be substituted with an open-source license (e.g., MIT) at the author's discretion. Until then, strict copyright is enforced.
