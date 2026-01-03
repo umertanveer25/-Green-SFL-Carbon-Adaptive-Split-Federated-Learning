@@ -22,17 +22,21 @@ This repository contains the discrete-event simulation framework used to validat
 
 ## ⚙️ Methodology
 
-The system formulates the resource allocation problem as a multi-objective minimization task at each time step $t$:
+The core innovation of Green-SFL is its **Carbon-Adaptive Split Scheduler**. Unlike static approaches, our framework continuously monitors the carbon differential between the Edge (IoT Device) and the Cloud (Server).
 
-$$ \min_{s \in \mathcal{S}} \mathcal{J}(s, t) = \alpha \cdot E_{\text{total}}(s, t) \cdot I_{\text{grid}}(t) + \beta \cdot L_{\text{total}}(s, t) $$
+### System Architecture
+![Green-SFL Methodology](green_sfl_methodology_pro.png)
 
-Where:
-- $s$: Split layer index.
-- $E_{\text{total}}$: Total energy consumption (Client + Server + Transmission).
-- $I_{\text{grid}}$: Real-time carbon intensity ($gCO_2/kWh$).
-- $L_{\text{total}}$: End-to-end training latency.
+The system operates in three phases:
+1.  **Profiler**: Measures the FLOPs and Activation size of each layer $l$ in the Neural Network.
+2.  **Carbon Oracle**: Fetches real-time carbon intensity $I(t)$ from regional grid APIs (CAISO/National Grid).
+3.  **Optimizer**: Solves the following cost function at each time step $t$:
 
-The simulation proves that by aligning computation with the "Solar Window" (the belly of the Duck Curve), Green-SFL achieves **~40% carbon reduction** compared to latency-optimal baselines.
+$$ \min_{s \in \mathcal{S}} \mathcal{J}(s, t) = \alpha \underbrace{\left[ E_{\text{client}}(s) \cdot I_{\text{client}}(t) + E_{\text{server}}(s) \cdot I_{\text{server}}(t) \right]}_{\text{Carbon Footprint}} + \beta \underbrace{\left[ T_{\text{compute}}(s) + T_{\text{comm}}(s) \right]}_{\text{Latency}} $$
+
+**Key Behavior**:
+- **Solar Window (Noon)**: When solar energy is abundant at the edge ($I_{\text{client}} \approx 0$), the system keeps more layers on the device.
+- **Carbon Peak (Evening)**: When the grid gets dirty, the system offloads computation to a cleaner data center or defers training.
 
 ## 📂 Repository Structure
 
@@ -42,6 +46,7 @@ Green-SFL-Official/
 ├── profiler.py             # Layer-wise energy & latency profiler (Jetson/Pi specs)
 ├── real_data_loader.py     # Interface for CAISO/National Grid carbon traces
 ├── models.py               # 1D-CNN Architecture definition (PyTorch)
+├── green_sfl_methodology_pro.png # System Architecture Diagram
 ├── data/
 │   ├── ciciot2023_sample.csv           # Benign/Attack traffic samples
 │   └── carbon_intensity_2024.csv       # 5-minute interval grid data
