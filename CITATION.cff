@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Tanveer"
+  given-names: "Umer"
+  affiliation: "Department of Computer Science"
+title: "Green-SFL: Carbon-Aware Dynamic Split Federated Learning Framework"
+version: 1.0.0
+date-released: 2026-01-03
+url: "https://github.com/umertanveer/green-sfl"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Tanveer"
+    given-names: "Umer"
+  journal: "Frontiers in Communications and Networks"
+  title: "Green-SFL: A Carbon-Aware Dynamic Split Federated Learning Framework for Sustainable IoT"
+  year: 2026
